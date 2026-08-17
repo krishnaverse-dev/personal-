@@ -1,6 +1,6 @@
 const posts = [
   {
-    title: "profile",
+    title: "About",
     text: `
 My name is Tek Raj Koirala, and this is my personal website. Here, I have shared information about my skills, experience, projects, and professional journey.
 
