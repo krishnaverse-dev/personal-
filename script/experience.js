@@ -1,147 +1,40 @@
 const posts = [
 
   {
-    title: "Fabrication Experience",
+    title: "Share",
+
     text: `
-I have around 10 years of hands-on experience in Fabrication work.
+If you find this website useful, interesting, or worth exploring, you can share it with others.
 
-Over the years, I have worked with different types of metal fabrication and developed practical knowledge through real-world projects and day-to-day workshop experience.
+You can share this website with your friends, family, colleagues, or anyone who may be interested in what I am working on.
 
-My experience includes:
+Sharing is a simple way to help someone discover this website.
 
-- Measuring and marking materials
-- Cutting and preparing metal
-- Welding and fitting
-- Sheet metal fabrication
-- Structural fabrication
-- Assembly and installation
-- Grinding and finishing
-- Using fabrication tools and equipment
-- Understanding basic technical drawings
-- Material handling and preparation
-- Quality checking
-- Following workplace safety practices
+If you think someone might find something useful here, feel free to send them the website.
 
-Ten years of working in fabrication has taught me much more than just technical skills. It has helped me develop accuracy, patience, problem-solving ability, teamwork, and the habit of completing work carefully.
+You can share it through your preferred platform or simply copy the website link and send it to someone.
 
-Working with materials and turning them into useful structures and components has been a major part of my professional experience.
+Thank you for visiting my website and taking the time to explore it.
 
-Fabrication is one of the fields where I have built strong practical, hands-on experience over many years.
-`
-  },
-
-  {
-    title: "Electrician Experience",
-    text: `
-I have around 5 years of practical experience working in the electrical field.
-
-During these years, I have gained hands-on experience with electrical installation, wiring, maintenance, basic troubleshooting, and electrical equipment.
-
-My experience includes:
-
-- Electrical wiring
-- Lighting installation
-- Switch and socket installation
-- Cable installation
-- Circuit breaker installation
-- Distribution board work
-- Electrical maintenance
-- Fault finding and troubleshooting
-- Basic electrical testing
-- Using electrical tools and equipment
-- General electrical safety practices
-
-Working in the electrical field has taught me the importance of accuracy, careful connections, proper testing, and safety.
-
-Electrical work requires attention to detail because even a small mistake can affect the performance and safety of an entire system.
-
-My 5 years of practical experience have given me a solid understanding of everyday electrical work and helped me become more confident in handling different electrical tasks.
-`
-  },
-
-  {
-    title: "Learning Web Development",
-    text: `
-Web Development is a new direction that I am currently exploring and learning.
-
-Unlike Fabrication and Electrical work, where I have years of hands-on experience, Web Development is something I am still learning step by step.
-
-What started as an interest has gradually become something I really enjoy exploring.
-
-Currently, I am learning and practicing:
-
-- HTML
-- CSS
-- JavaScript
-- Responsive Web Design
-- Frontend Development
-- Git and GitHub
-- APIs
-- Databases
-- Web Development Tools
-- Basic Backend Concepts
-
-One of the things I enjoy most about Web Development is exploring different Tools & Technologies and understanding how they work together.
-
-I like experimenting with code, creating small projects, trying different designs, finding errors, and figuring out how to fix them.
-
-I am still a learner in this field, and I don't consider myself an expert yet.
-
-My focus right now is to build a strong foundation, practice regularly, learn from mistakes, and gradually improve my skills through real projects.
-
-My previous experience has taught me practical problem-solving and working with tools, while Web Development is giving me an opportunity to develop a completely different kind of technical skill.
-
-For me, this is the beginning of a new learning journey, and I am excited to see where it takes me.
-`
-  },
-
-  {
-    title: "My Professional Journey",
-    text: `
-My professional journey has taken me through three different areas of practical and technical work.
-
-Fabrication — 10 Years
-
-I have spent around 10 years working in Fabrication, gaining extensive hands-on experience with metal work, welding, fitting, cutting, assembly, and workshop processes.
-
-
-Electrical Work — 5 Years
-
-I also have around 5 years of experience in electrical work, including wiring, installation, maintenance, troubleshooting, and working with electrical equipment.
-
-
-Web Development — Currently Learning
-
-Web Development is my newest area of interest.
-
-I am currently learning HTML, CSS, JavaScript, responsive design, Git, GitHub, APIs, databases, and other modern web technologies.
-
-I am still developing my skills in this field and learning through practice and personal projects.
-
-
-Each of these areas has taught me something different.
-
-Fabrication taught me practical work and precision.
-
-Electrical work taught me careful problem-solving and safety.
-
-Web Development is now teaching me programming, technology, creativity, and a completely new way of solving problems.
-
-I am continuing to learn, experiment, and build new skills one step at a time.
+If you find something here that you like, sharing it would be greatly appreciated.
 `
   }
 
 ];
 
 
-function showPosts() {
+function showPosts(){
 
-  const container = document.getElementById("posts");
+  const container =
+    document.getElementById("posts");
 
-  if (!container) {
+  if(!container){
+
     console.error("Posts container not found");
+
     return;
   }
+
 
   container.innerHTML = posts.map(post => `
 
@@ -150,56 +43,78 @@ function showPosts() {
       <h2>${post.title}</h2>
 
       ${
-        post.image && post.image.trim() !== ""
-          ? `<img src="${post.image}" loading="lazy" alt="${post.title}">`
-          : ""}
+        post.image &&
+        post.image.trim() !== ""
+
+        ? `
+          <img
+            src="${post.image}"
+            loading="lazy"
+            alt="${post.title}"
+          >
+        `
+
+        : ""
+      }
+
 
       <p>${post.text.trim()}</p>
+
+
+      <!-- SHARE BUTTON
+           POST KE BILKUL LAST ME -->
+
+      <button
+        id="shareBtn"
+        class="share-main-btn"
+        type="button"
+      >
+
+        <i class="fas fa-share-nodes"></i>
+
+        <span>Share Website</span>
+
+      </button>
 
     </article>
 
   `).join("");
+
 }
 
 
-function setupNavigation() {
+function setupNavigation(){
 
-  const navItems = document.querySelectorAll(".nav-item");
+  const navItems =
+    document.querySelectorAll(".nav-item");
+
 
   navItems.forEach(item => {
 
-    item.addEventListener("click", function () {
+    item.addEventListener("click", function(){
 
-      if (this.id === "menuBtn") 
-        {return;}
+      if(this.id === "menuBtn"){
+
+        return;
+
+      }
 
 
-      if (this.id === "skillsBtn") 
-        {return;}
+      if(this.id === "skillsBtn"){
+
+        return;
+
+      }
 
 
       navItems.forEach(nav => {
+
         nav.classList.remove("active");
+
       });
 
+
       this.classList.add("active");
-
-      const navName = this.dataset.nav;
-
-      if (navName === "home") {
-
-        const posts = document.getElementById("posts");
-
-        if (posts) {
-
-          posts.scrollTo({
-            top: 0,
-            behavior: "smooth"
-          });
-
-        }
-
-      }
 
     });
 
@@ -207,24 +122,41 @@ function setupNavigation() {
 
 }
 
-function setupMenu() {
+function setupMenu(){
 
-  const menuBtn = document.getElementById("menuBtn");
-  const menuClose = document.getElementById("menuClose");
-  const menuOverlay = document.getElementById("menuOverlay");
-  const menuSheet = document.getElementById("menuSheet");
+  const menuBtn =
+    document.getElementById("menuBtn");
+
+  const menuClose =
+    document.getElementById("menuClose");
+
+  const menuOverlay =
+    document.getElementById("menuOverlay");
+
+  const menuSheet =
+    document.getElementById("menuSheet");
 
 
-  if (
+  if(
     !menuBtn ||
     !menuClose ||
     !menuOverlay ||
     !menuSheet
-  ) {
+  ){
+
     return;
+
   }
 
-  function openMenu() {
+
+  function openMenu(){
+
+    if(typeof window.closeSkillsMenu === "function"){
+
+      window.closeSkillsMenu();
+
+    }
+
 
     menuOverlay.classList.add("open");
 
@@ -237,7 +169,8 @@ function setupMenu() {
 
   }
 
-  function closeMenu() {
+
+  function closeMenu(){
 
     menuOverlay.classList.remove("open");
 
@@ -250,39 +183,30 @@ function setupMenu() {
 
   }
 
+
   menuBtn.addEventListener(
     "click",
     openMenu
   );
+
 
   menuClose.addEventListener(
     "click",
     closeMenu
   );
 
+
   menuOverlay.addEventListener(
     "click",
     closeMenu
   );
 
-  document.addEventListener(
-    "keydown",
-    function (event) {
 
-      if (event.key === "Escape") {
-
-        closeMenu();
-
-        closeSkillsMenu();
-
-      }
-
-    }
-  );
+  window.closeMainMenu = closeMenu;
 
 }
 
-function setupSkillsMenu() {
+function setupSkillsMenu(){
 
   const skillsBtn =
     document.getElementById("skillsBtn");
@@ -297,17 +221,32 @@ function setupSkillsMenu() {
     document.getElementById("skillsSheet");
 
 
-  if (
+  if(
     !skillsBtn ||
     !skillsClose ||
     !skillsOverlay ||
     !skillsSheet
-  ) {
-    console.error("Skills menu elements not found");
+  ){
+
+    console.error(
+      "Skills menu elements not found"
+    );
+
     return;
+
   }
 
-  function openSkillsMenu() {
+
+  function openSkillsMenu(){
+
+    /* Close main menu first */
+
+    if(typeof window.closeMainMenu === "function"){
+
+      window.closeMainMenu();
+
+    }
+
 
     skillsOverlay.classList.add("open");
 
@@ -320,7 +259,8 @@ function setupSkillsMenu() {
 
   }
 
-  window.closeSkillsMenu = function () {
+
+  window.closeSkillsMenu = function(){
 
     skillsOverlay.classList.remove("open");
 
@@ -333,36 +273,402 @@ function setupSkillsMenu() {
 
   };
 
+
   skillsBtn.addEventListener(
     "click",
-    function () {
+    function(){
+
       document
         .querySelectorAll(".nav-item")
         .forEach(nav => {
+
           nav.classList.remove("active");
+
         });
 
+
       skillsBtn.classList.add("active");
+
+
       openSkillsMenu();
 
     }
   );
 
+
   skillsClose.addEventListener(
     "click",
-    closeSkillsMenu
+    window.closeSkillsMenu
   );
+
 
   skillsOverlay.addEventListener(
     "click",
-    closeSkillsMenu
+    window.closeSkillsMenu
+  );
+
+}
+
+function setupShare(){
+
+  const shareBtn =
+    document.getElementById("shareBtn");
+
+  const shareClose =
+    document.getElementById("shareClose");
+
+  const shareOverlay =
+    document.getElementById("shareOverlay");
+
+  const shareSheet =
+    document.getElementById("shareSheet");
+
+
+  if(
+    !shareBtn ||
+    !shareClose ||
+    !shareOverlay ||
+    !shareSheet
+  ){
+
+    console.error(
+      "Share elements not found"
+    );
+
+    return;
+
+  }
+
+  const websiteURL =
+    window.location.href;
+
+
+  const shareTitle =
+    "TEK RAJ KOIRALA";
+
+
+  const shareText =
+    "explore";
+
+
+  function openShare(){
+
+    if(typeof window.closeMainMenu === "function"){
+
+      window.closeMainMenu();
+
+    }
+
+
+    if(typeof window.closeSkillsMenu === "function"){
+
+      window.closeSkillsMenu();
+
+    }
+
+
+    shareOverlay.classList.add("open");
+
+    shareSheet.classList.add("open");
+
+    shareSheet.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
+  }
+
+  function closeShare(){
+
+    shareOverlay.classList.remove("open");
+
+    shareSheet.classList.remove("open");
+
+    shareSheet.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+  }
+
+  shareBtn.addEventListener(
+    "click",
+    openShare
+  );
+
+
+  shareClose.addEventListener(
+    "click",
+    closeShare
+  );
+
+
+  shareOverlay.addEventListener(
+    "click",
+    closeShare
+  );
+
+  const socialButtons =
+    document.querySelectorAll(
+      ".social-option"
+    );
+
+
+  socialButtons.forEach(button => {
+
+    button.addEventListener(
+      "click",
+      async function(){
+
+        const type =
+          this.dataset.share;
+
+        if(type === "whatsapp"){
+
+          const url =
+            "https://wa.me/?text=" +
+            encodeURIComponent(
+              shareText + "\n\n" + websiteURL
+            );
+
+          window.open(
+            url,
+            "_blank",
+            "noopener,noreferrer"
+          );
+
+          return;
+        }
+
+        if(type === "facebook"){
+
+          const url =
+            "https://www.facebook.com/sharer/sharer.php?u=" +
+            encodeURIComponent(websiteURL);
+
+          window.open(
+            url,
+            "_blank",
+            "noopener,noreferrer"
+          );
+
+          return;
+        }
+
+        if(type === "telegram"){
+
+          const url =
+            "https://t.me/share/url?url=" +
+            encodeURIComponent(websiteURL) +
+            "&text=" +
+            encodeURIComponent(shareText);
+
+          window.open(
+            url,
+            "_blank",
+            "noopener,noreferrer"
+          );
+
+          return;
+        }
+
+
+        if(type === "x"){
+
+          const url =
+            "https://twitter.com/intent/tweet?text=" +
+            encodeURIComponent(shareText) +
+            "&url=" +
+            encodeURIComponent(websiteURL);
+
+          window.open(
+            url,
+            "_blank",
+            "noopener,noreferrer"
+          );
+
+          return;
+        }
+
+        if(type === "linkedin"){
+
+          const url =
+            "https://www.linkedin.com/sharing/share-offsite/?url=" +
+            encodeURIComponent(websiteURL);
+
+          window.open(
+            url,
+            "_blank",
+            "noopener,noreferrer"
+          );
+
+          return;
+        }
+
+        if(type === "email"){
+
+          const subject =
+            encodeURIComponent(
+              "TEK RAJ KOIRALA Website"
+            );
+
+          const body =
+            encodeURIComponent(
+              shareText +
+              "\n\n" +
+              websiteURL
+            );
+
+          window.location.href =
+            "mailto:?subject=" +
+            subject +
+            "&body=" +
+            body;
+
+          return;
+        }
+
+        if(type === "copy"){
+
+          try{
+
+            await navigator.clipboard.writeText(
+              websiteURL
+            );
+
+            this.querySelector("span").textContent =
+              "Copied!";
+
+            setTimeout(() => {
+
+              this.querySelector("span").textContent =
+                "Copy Link";
+
+            }, 1600);
+
+          }
+          catch(error){
+
+            prompt(
+              "Copy this website link:",
+              websiteURL
+            );
+
+          }
+
+          return;
+        }
+
+        if(type === "native"){
+
+          if(navigator.share){
+
+            try{
+
+              await navigator.share({
+
+                title:shareTitle,
+
+                text:shareText,
+
+                url:websiteURL
+
+              });
+
+            }
+            catch(error){
+
+            }
+
+          }
+          else{
+
+            try{
+
+              await navigator.clipboard.writeText(
+                websiteURL
+              );
+
+              alert(
+                "Website link copied!"
+              );
+
+            }
+            catch(error){
+
+              prompt(
+                "Copy this website link:",
+                websiteURL
+              );
+
+            }
+
+          }
+
+        }
+
+      }
+    );
+
+  });
+
+}
+
+function setupEscape(){
+
+  document.addEventListener(
+    "keydown",
+    function(event){
+
+      if(event.key !== "Escape"){
+
+        return;
+
+      }
+      if(typeof window.closeMainMenu === "function"){
+
+        window.closeMainMenu();
+      }
+
+      if(typeof window.closeSkillsMenu === "function"){
+
+        window.closeSkillsMenu();
+
+      }
+
+
+      const shareOverlay =
+        document.getElementById(
+          "shareOverlay"
+        );
+
+      const shareSheet =
+        document.getElementById(
+          "shareSheet"
+        );
+
+
+      if(shareOverlay && shareSheet){
+
+        shareOverlay.classList.remove("open");
+
+        shareSheet.classList.remove("open");
+
+        shareSheet.setAttribute(
+          "aria-hidden",
+          "true"
+        );
+
+      }
+
+    }
   );
 
 }
 
 document.addEventListener(
   "DOMContentLoaded",
-  function () {
+  function(){
 
     showPosts();
 
@@ -371,6 +677,10 @@ document.addEventListener(
     setupMenu();
 
     setupSkillsMenu();
+
+    setupShare();
+
+    setupEscape();
 
   }
 );
