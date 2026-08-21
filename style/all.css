@@ -600,7 +600,6 @@ button{
   bottom:
    calc(52px + var(--safe-bottom));
   }
-
 .share-sheet{
   max-height:86%;
   bottom:
