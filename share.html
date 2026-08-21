@@ -7,7 +7,7 @@
   <meta
   name="viewport"
   content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover, user-scalable=no">
-  <title>share Tek raj koirala</title>
+  <title>Tek raj koirala</title>
   <script src="script/share.js"></script>
   <link
   rel="stylesheet"
@@ -21,7 +21,8 @@
   <div class="topbar">
   <h3><i class="fas fa-rss"></i>TEK RAJ KOIRALA</h3>
   </div>
- <main id="posts"></main>
+ <main id="posts">       
+ </main>
   <nav class="bottom-nav" id="bottomNav">
     <button
      class="nav-item active"
@@ -153,8 +154,69 @@
        <span>Web Development</span>
       </button>
     </div>
-
-  </section>
     </div>
+
+  <!-- ===== SHARE OVERLAY & SHEET (ADDED ONLY THESE TWO) ===== -->
+  <div class="share-overlay" id="shareOverlay"></div>
+
+  <section class="share-sheet" id="shareSheet" aria-hidden="true">
+    <button
+      class="menu-close"
+      id="shareClose"
+      type="button"
+      aria-label="Close share"
+    >
+      <i class="fas fa-xmark"></i>
+    </button>
+
+    <div class="menu-handle"></div>
+
+    <div class="share-title">
+      <div class="share-title-icon">
+        <i class="fas fa-share-nodes"></i>
+      </div>
+      <div>
+        <strong>Share this website</strong>
+        <small>Choose your platform</small>
+      </div>
+    </div>
+
+    <div class="social-grid">
+      <button class="social-option whatsapp" data-share="whatsapp" type="button">
+        <i class="fab fa-whatsapp"></i>
+        <span>WhatsApp</span>
+      </button>
+      <button class="social-option facebook" data-share="facebook" type="button">
+        <i class="fab fa-facebook-f"></i>
+        <span>Facebook</span>
+      </button>
+      <button class="social-option telegram" data-share="telegram" type="button">
+        <i class="fab fa-telegram-plane"></i>
+        <span>Telegram</span>
+      </button>
+      <button class="social-option x-social" data-share="x" type="button">
+        <i class="fab fa-x-twitter"></i>
+        <span>X</span>
+      </button>
+      <button class="social-option linkedin" data-share="linkedin" type="button">
+        <i class="fab fa-linkedin-in"></i>
+        <span>LinkedIn</span>
+      </button>
+      <button class="social-option email" data-share="email" type="button">
+        <i class="fas fa-envelope"></i>
+        <span>Email</span>
+      </button>
+      <button class="social-option copy" data-share="copy" type="button">
+        <i class="fas fa-link"></i>
+        <span>Copy Link</span>
+      </button>
+      <button class="social-option native" data-share="native" type="button">
+        <i class="fas fa-ellipsis-h"></i>
+        <span>More</span>
+      </button>
+    </div>
+  </section>
+  <!-- ===== END SHARE ===== -->
+
 </body>
 </html>
